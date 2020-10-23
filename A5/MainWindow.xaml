@@ -1,0 +1,72 @@
+﻿ 
+	<!--FILE	    : MainWindow.xaml	
+    PROJECT			: PROG2121 - Assignment 5
+	PROGRAMMER		: John Stanley and Aaron Perry
+	FIRST VERSION	: 2019-11-01
+	DESCRIPTION		: This file holds the xaml DOM for the UI interface of the client application.-->
+
+    
+    <Window x:Name="clientLoad" x:Class="A5.MainWindow"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A5"
+        mc:Ignorable="d"
+        Title="Aaron and Johns Super Secret Chat APP" Height="450" Width="800">
+
+
+    <Window.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.2" />
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="BorderBrush" Value="DarkGray" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFEFEFEF">
+        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Height="22" Margin="81,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Text="10.192.49.5"/>
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="23" Margin="81,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Text="13000"/>
+        <Button x:Name="connect_btn" Content="Connect" HorizontalAlignment="Left" Margin="13,391,0,0" VerticalAlignment="Top" Width="75" Click="Connect_btn_Click"/>
+        <TextBox x:Name="outMessageBox" Height="46" Width="469"  TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="255,0,70,10" BorderBrush="White">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="inMessageBox" HorizontalAlignment="Left" Height="350" Margin="250,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" Background="#FFE5DDD5" IsEnabled="False"/>
+        <Button x:Name="btnSend" Margin="729,365,22,10" Style="{StaticResource MyButton}" Click="Msg_btn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\jpsta\Desktop\SET Level3\Windows and Mobile Programming\Assignments\A5\send.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="IP Address:" HorizontalAlignment="Left" Margin="13,332,0,0" VerticalAlignment="Top"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Margin="47,359,0,0" VerticalAlignment="Top"/>
+        <Label Content="Connected Clients" HorizontalAlignment="Left" Margin="13,28,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="101,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="nameTextBox_TextChanged"/>
+        <Label Content="Enter your name" HorizontalAlignment="Left" Margin="4,2,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="userListbox" HorizontalAlignment="Left" Height="250" Margin="10,59,0,0" VerticalAlignment="Top" Width="162"/>
+        <Button x:Name="disconnect_btn" Content="Disconnect" HorizontalAlignment="Left" Margin="101,391,0,0" VerticalAlignment="Top" Width="75" Click="disconnect_btn_Click"/>
+
+
+    </Grid>
+</Window>
